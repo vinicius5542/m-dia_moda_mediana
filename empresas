@@ -1,0 +1,36 @@
+
+
+import statistics
+
+
+empresas = [
+    [1000, 6000, 1200, 8000, 1400],   # Empresa 1
+    [5000, 4000, 3000, 2000, 7000],   # Empresa 2
+    [1200, 1300, 8000, 3000, 15000],  # Empresa 3
+    [1400, 1750, 2000, 4500, 5900, 7000]  # Empresa 4
+]
+
+def analisar_salarios(empresas):
+    for idx, salarios in enumerate(empresas, start=1):
+        print(f"Analisando Empresa {idx}:")
+        print('Salários:', salarios)
+        print('--------------------------')
+       
+        media = statistics.mean(salarios)
+        mediana = statistics.median(salarios)
+        try:
+            moda = statistics.mode(salarios)
+        except statistics.StatisticsError:
+            moda = "Não há moda única"
+        variancia = statistics.variance(salarios)
+        desvio_padrao = statistics.stdev(salarios)
+        
+        print(f"Média: {media:.2f}")
+        print(f"Mediana: {mediana:.2f}")
+        print(f"Moda: {moda}")
+        print(f"Variância: {variancia:.2f}")
+        print(f"Desvio padrão: {desvio_padrao:.2f}")
+        print()
+
+
+analisar_salarios(empresas)
